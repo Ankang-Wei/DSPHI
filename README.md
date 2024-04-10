@@ -1,74 +1,74 @@
-## MSPHI
+   ## 姆斯菲
 
-Code and Datasets for "MSPHI: A novel framework for phage-host prediction via logical probability theory and network sparsification".
+基于逻辑概率理论和网络离散化预测的新框架。
 
-#### Developers
+   #### 开发者
 
-Ankang Wei (weiankng@mails.ccun.edu.cn) and Xingpeng Jiang (weiankng@mails.ccun.edu.cn) from School of Mathematics and Statistics, Central China Normal University.
+华中师范大学数学与统计学院安康威和兴鹏江。
 
-#### Datasets
+   #### 数据集
 
-- data/V.csv: Cosine similarity of phage.
-- data/H.csv: Cosine similarity of host.
-- data/high3-JH-HB.csv is the mutual information of phage type 3 after filtering and merging.
-- data/high-h,csv is the mutual information of host.
-- data/VH.csv: phage-host associations. If the phage is associated with host, its label will be 1. Otherwise, the label will be 0.
-- data/high1.csv is the mutual information of phage type 1.
-- data/high2.csv is the mutual information of phage type 2.
-- data/high3.csv is the mutual information of phage type 3.
-- data/high4.csv is the mutual information of phage type 4.
-- data/high5.csv is the mutual information of phage type 5.
-- data/high6.csv is the mutual information of phage type 6.
-- data/high7.csv is the mutual information of phage type 7.
-- data/high8.csv is the mutual information of phage type 8.
+   - 数据/V.ccv:吞噬体的余弦相似性。
+   - 数据/h.cv:主机的余弦相似性。
+   - 数据/HH3-JH-HP.cv是筛选和合并后的第3型噬菌体的相互信息。
+   - 数据/高,ccv是主机的相互信息。
+   - 数据/VH.CSV:会议主办协会。如果菌体与宿主相关联,则其标签为1。否则,标签将是0。
+   - 数据/HHH1.ccv是第1型噬菌体的相互信息。
+   - 数据/HEH2.ccv是第2型噬菌体的相互信息。
+   - 数据/HHH3.ccv是第3型噬菌体的相互信息。
+   - 数据/HHH4.ccv是4型噬菌体的相互信息。
+   - 5.ccv是第5型噬菌体的相互信息。
+   - 6.ccv是6型吞噬体的相互信息。
+   - 7.ccv是7型吞噬体的相互信息。
+   - 数据/HHH8.ccv是8型吞噬体的相互信息。
 
-#### Code
+   #### 编码
 
-#### Tool
+   #### 工具
 
-When annotating metagenomic data, users can refer to kneaddata [https://github.com/biobakery/kneaddata] and kraken2 [https://github.com/DerrickWood/kraken2] for tool downloading and installation. 
+ 当注释宏基因组数据时,用户可以参考Kneadata [ HTPS://焦图布网/生物能源研究所/Kneadata ] 克拉肯2 [ //吉特布网/德里克伍德/克拉肯2 ] 用于工具下载和安装。
 
-The dataset used by kneaddata in the host removal process is human_hg38_refMrna. 
-You can also use a custom dataset for this purpose. Detailed instructions for constructing the dataset can be found at [https://github.com/biobakery/kneaddata].
-
-```
-kneaddata_database --download human_genome bowtie2
-kneaddata -i1 /home/q1.fastq.gz -i2 /home/q2.fastq.gz -o output_dir -t 50 -p 50 -db /home/human_hg38_refMrna
-```
-
-During the annotation process, Kraken2 uses the Standard database, which is 55GB in size and includes RefSeq archaea, bacteria, viral, plasmid, human1, and UniVec_Core. Users can also use a custom database; for instructions on how to construct one, please refer to [https://github.com/DerrickWood/kraken2]. The database can be downloaded from [https://benlangmead.github.io/aws-indexes/k2]. Both Bracken and Kraken2 use the same database.
+Kneadata在去除寄主过程中使用的数据集是人类的。
+ 您也可以为此使用自定义数据集。构造数据集的详细指引载于 [ HTPS://焦图布网/生物能源研究所/Kneadata ] .
 
 ```
-kraken2 --db /home/Standard  --threads 20 --report flag --report TEST.report --output TEST.output  --paired q1.fastq.gz q2.fastq.gz
-bracken -d /home/Standard -i TEST.report -o TEST.S.bracken -w TEST.S.bracken.report -r 150 -l S
+Kneadata_数据库-下载人类基因组包2
+Kneadata-I1/住宅/Q1.fstq.Gz-I2/住宅/Q2.fstq.Gz-o排放量-50p50-db/住宅/人类
 ```
 
-The package used for computing logical relationships is written in C++ and users can directly call the **L.cpp** file for its usage.
-
-##### Environment Requirement
-
-The required packages are as follows:
-
-- Python == 3.8.3
-- Keras == 2.8.0
-- Tensorflow == 2.3.0
-- Numpy == 1.23.5
-- Pandas == 1.5.3
-- Protobuf == 3.20.3
-
-##### Usage
+ 在注释过程中,克拉肯2使用标准的数据库,其尺寸为55GB,包括重新生成的古细菌、细菌、病毒、质粒、人1和单核。用户也可以使用自定义数据库;关于如何构造数据库的说明,请参阅 [ //吉特布网/德里克伍德/克拉肯2 ] .资料库可於 [ https://benlangmead.github.io/aws-indexes/k2 ] .布雷肯和克拉肯2都使用相同的数据库。
 
 ```
-git clone https://github.com/weiankang258369/MSPHI
-cd MSPHI/code
-python main.py
+克拉肯2----数据库/家庭/标准----线程20----报告标记----报告测试。
+报告,报告,报告,报告,报告,报告,报告,报告,报告,报告,报告,报告,报告,报告,报告,报告,报告,报告,报告,报告,报告。
 ```
 
-Users can use their **own data** to train prediction models. 
+用于计算逻辑关系的包是用C++编写的,用户可以直接调用 ** L.CPP ** 使用的文件。
 
-For **new host/phage**, users can download the DNA from the NCBI database, and use code/features.py to compute the features derived from DNA.
+  ##### 环境要求
 
-**Note:** 
+所需包裹如下:
+
+  - Python == 3.8.3
+  - Keras == 2.8.0
+  - Tensorflow == 2.3.0
+ - Numpy == 1.23.5
+ - Pandas == 1.5.3
+ - Protobuf == 3.20.3
+
+ ##### 用法
+
+```
+GIT克隆人HTPS://吉图布.com/威康康258369/MSFP
+编码/编码
+大型巨蛇
+```
+
+ 用户可以使用他们的 ** 自己的数据 ** 培训预测模型。
+
+ 为了 ** 新宿主/噬菌体 ** ,用户可以从国家统计局的数据库中下载DNA,并使用代码/特征。
+
+ ** 注: ** 
 
 In code/features.py, users need to install the iLearn tool [https://ilearn.erc.monash.edu/ or https://github.com/Superzchen/iLearn] and prepare .fasta file, this file is DNA sequences of all phages/hosts. (when you use iLearn to compute the DNA features, you should set the parameters k of Kmer as 3.)
 
