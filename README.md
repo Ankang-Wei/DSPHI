@@ -59,7 +59,7 @@ The required packages are as follows:
 ##### Usage
 
 ```
-git clone https://github.com/weiankang258369/MSPHI
+git clone https://github.com/weiankang258369/DSPHI
 cd MSPHI/code
 python main.py
 ```
