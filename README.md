@@ -4,7 +4,7 @@ Code and Datasets for "MSPHI: A novel framework for phage-host prediction via lo
 
 #### Developers
 
-Ankang Wei (weiankng@mails.ccun.edu.cn) and Xingpeng Jiang (weiankng@mails.ccun.edu.cn) from School of Mathematics and Statistics, Central China Normal University.
+Ankang Wei (weiankng@mails.ccun.edu.cn) and Xingpeng Jiang (xpjiang@mail.ccnu.edu.cn) from School of Mathematics and Statistics, Central China Normal University.
 
 #### Datasets
 
