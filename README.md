@@ -1,6 +1,6 @@
 ## DSPHI
 
-Code and Datasets for "MSPHI: A novel framework for phage-host prediction via logical probability theory and network sparsification"
+Code and Datasets for "DSPHI: A novel framework for phage-host prediction via logical probability theory and network sparsification"
 
 #### Developers
 
@@ -60,7 +60,7 @@ The required packages are as follows:
 
 ```
 git clone https://github.com/weiankang258369/DSPHI
-cd MSPHI/code
+cd DSPHI/code
 python main.py
 ```
 
